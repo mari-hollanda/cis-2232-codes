@@ -1,0 +1,51 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="fragments/head :: headerFragment">
+        <title id="pageTitle">Sample</title>
+    </head>
+    <body>
+        <nav th:replace="fragments/navHeader :: navbar"></nav>
+        <form th:object="${reportDetailStudent}" action="replacedBeforePageRendered" th:action="@{/reports/student/submit}"  method="post" class="form-horizontal">
+
+            <h1 th:text="${message}">test</h1>
+
+            <div class="field">
+                <label class="label" for="course">Course</label>
+                <div class="control">
+                    <div class="select">
+                        <select th:field="${reportDetailStudent.courseName}">
+                            <option th:each="course :${session.courses}"
+                                    th:value="${course.description}"
+                                    th:text="${course.description}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: left;" class="form-actions">
+                <button class="btn btn-primary btn-lg" type="submit">Run the report</button>
+            </div>
+
+            <div>
+                <table class="table centered is-striped">
+                    <thead>
+                        <tr>
+                            <th th:text="${reportDetailStudent.courseNameForStudentsFound}"  style="width: 150px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="current : ${reportDetailStudent.names}">
+                            <td th:text="${current}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </form>
+
+
+
+
+
+        <footer th:replace="fragments/footer :: footer"></footer>
+    </body>
+</html>

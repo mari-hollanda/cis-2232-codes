@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="fragments/head :: headerFragment">
+        <title id="pageTitle">Student</title>
+    </head>
+    <body>
+    <nav th:replace="fragments/navHeader :: navbar"></nav>
+
+    <div class="container">
+        <div class="form-container">
+            <form th:action="@{/student/submit}" method="post">
+
+                <div class="field is-horizontal">
+                    <div class="field-body">
+
+<!--                        Note that the field-id tag will result in the id not being shown on the html view-->
+
+                        <div class="field field-id">
+                            <label for="studentId" class="label">ID</label>
+                            <div class="control">
+                                <input type="text" readonly th:field="${student.studentId}" class="input">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="name" class="label">Name</label>
+                            <div class="control has-icons-right">
+                                <input class="input" th:errorclass="is-danger" type="text"
+                                       th:field="${student.name}">
+                            </div>
+                            <p class="help is-danger" th:if="${#fields.hasErrors('${student.name}')}"
+                               th:errors="${student.name}">
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <label for="program" class="label">Program</label>
+                            <div class="control has-icons-right">
+                                <input class="input" th:errorclass="is-danger" type="text"
+                                       th:field="${student.program}">
+                            </div>
+                            <p class="help is-danger" th:if="${#fields.hasErrors('${student.program}')}"
+                               th:errors="${student.program}"></p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button class="button is-primary">Submit</button>
+            </form>
+        </div>
+
+    </div>
+    <footer th:replace="fragments/footer :: footer"></footer>
+    </body>
+</html>

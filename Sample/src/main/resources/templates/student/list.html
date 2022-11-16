@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="fragments/head :: headerFragment">
+        <title id="pageTitle">Student List</title>
+    </head>
+
+    <body>
+        <nav th:replace="fragments/navHeader :: navbar"></nav>
+
+        <div class="container">
+            <div class="table-title">
+                <h2 class="title is-2 has-text-centered">Student List</h2>
+                <span>
+                    <form th:action="@{/student/search}" method="post">
+                        <label for="name">Name</label>
+                        <input type="text" th:field="${student.name}"/>
+                        <button>Submit</button>
+                        <!--    add a message here-->
+                        <!-- Note the message was put in the model from the controller class-->
+                        <span class="error" th:text="${message}">test</span>
+
+                        <a th:href="@{/student/add}">
+                            <span>Add New Student</span>
+                            <span class="icon"><i title="Add"></i></span>
+                        </a>
+                    </form>
+                </span>
+                <div class="vert-align">
+                    <span>Students: </span><span th:text="${#lists.size(students)}"></span>
+                </div>
+            </div>
+            <table class="table is-fullwidth is-bordered is-striped">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Program</th>
+                        <th>HollPass Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="current : ${students}">
+                        <td th:text="${current.studentId}"></td>
+                        <td th:text="${current.name}"></td>
+                        <td th:text="${current.program}"></td>
+                        <td th:text="${current.hollPassBalance}"></td>
+                        <td>
+                            <div class="flex-sp-btw">
+
+                                <!--                        <a th:href="@{/members/edit/{id}(id=${member.userId})}">-->
+                                <a th:href="@{/future}">
+                                    <span class="icon"><i class="fas fa-edit" title="Edit"></i></span>
+                                </a>
+                                <a th:href="@{/student/delete/{id}(id=${current.studentId})}">
+                                    <span class="icon"><i class="fas fa-trash" title="Delete"></i></span>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer th:replace="fragments/footer :: footer"></footer>
+    </body>
+</html>

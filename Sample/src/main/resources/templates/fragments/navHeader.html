@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+    <nav th:fragment="navbar" class="navbar nav" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" id="burg"
+               onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');"
+               data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a th:href="@{/future}" class=" navbar-link">Student</a>
+                    <div class="navbar-dropdown">
+                        <a th:href="@{/student}" class="navbar-item">Student</a>
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a th:href="@{/future}" class=" navbar-link">Reports</a>
+                    <div class="navbar-dropdown">
+                        <a th:href="@{/reports/student/input}" class="navbar-item">Student report</a>
+                         <hr class="navbar-divider">
+                        <a th:href="@{/reports/course/input}" class="navbar-item">Course report</a>
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a th:href="@{/}" class="navbar-link">Other</a>
+                    <div class="navbar-dropdown">
+                        <a th:href="@{/about_bj}" class="navbar-item">About BJ</a>
+                        <hr class="navbar-divider">
+                        <a th:href="@{/about_bj2}" class="navbar-item">About BJ 2</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    </body>
+</html>

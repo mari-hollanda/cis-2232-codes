@@ -1,0 +1,6 @@
+Launch xampp and start the MySql
+
+Access the database and run codeType.sql
+
+Notes:
+Check security - is there a password on the database and in the db config in the code.

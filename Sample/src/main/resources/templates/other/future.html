@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/head :: head">
+        <title id="pageTitle" >Sample</title>
+    </head>
+    <body>
+    <nav th:replace="fragments/navHeader :: navbar"></nav>
+    <div class="container has-text-centered">
+        <h2 class="title is-2">ToDo</h2>
+        <table class="table centered">
+            <tr>
+                <td>Future Functionality</td>
+            </tr>
+        </table>
+    </div>
+    </body>
+    <footer th:replace="fragments/footer :: footer"></footer>
+</html>
