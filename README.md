@@ -1,1 +1,1 @@
-This is a repository where you can find all of Marianna Hollanda Campos Pedroso assignments.
+The repository contains the assignments and practical exams from Holland College class Holland College CIS2232 - Advanced Object Oriented Programming made with Apache NetBeans using Java programming language.
